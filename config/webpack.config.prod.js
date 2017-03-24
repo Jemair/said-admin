@@ -8,6 +8,7 @@ var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
+var path = require('path');
 
 
 
@@ -82,7 +83,9 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web',
+      // 经常使用的模块
+      'components': path.join(paths.appSrc, 'components'),
     }
   },
 
