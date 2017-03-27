@@ -46,7 +46,7 @@ class App extends Component {
               style={{ height: '100%' }}
             >
               <SubMenu key="said" title={<span><Icon type="article" />Said 管理</span>}>
-                <Menu.Item key="/index"><Icon type="rizhi11" />Said 概况</Menu.Item>
+                <Menu.Item key="/said"><Icon type="rizhi11" />Said 概况</Menu.Item>
                 <Menu.Item key="/said/add"><Icon type="bianxie" />添加 Said</Menu.Item>
               </SubMenu>
               <SubMenu key="blog" title={<span><Icon type="screen" />日志管理</span>}>
