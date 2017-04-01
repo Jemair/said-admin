@@ -10,6 +10,12 @@ export const UPDATE = 'SAID/UPDATE';
 export const LOAD = 'SAID/LOAD';
 export const REMOVE = 'SAID/REMOVE'
 
+// const initialState = {
+//   key: 0,
+//   name: '测试',
+//   context: 'defaults 正文'
+// }
+
 // reducer
 export default function (state = [] /* state 应该有一个默认值 */, action) {
   switch (action.type) {
@@ -43,11 +49,25 @@ export const add = (item) => ({
 
 
 export const loadSaidLists = (where) => {
+  // 通过 redux-thunk 中间件，返回函数
   return (dispatch, getState) => {
-    return dispatch(new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       setTimeout(function () {
-        resolve([])
+        resolve([{
+          key: 0,
+          name: '测试名称1',
+          context: `测试正文 - ${Date.now()}`
+        },
+        {
+          key: 1,
+          name: '测试名称2',
+          context: `测试正文 - ${Date.now()}`
+        }])
       }, 2000);
-    }))
+    }).then((datas) => {
+      datas.forEach((data) => {
+        dispatch(add(data))
+      })
+    })
   }
 }

@@ -13,7 +13,7 @@ import Index from '../../views/said'
 
 // 建立一个从（外部的）state对象到（UI 组件的）props对象的映射关系
 const mapStateToProps = (state) => ({
-  lists: state.lists
+  lists: state.said_list
 })
 
 // concat() 函数的第二个参数，可以在这里做一些特殊的逻辑处理，默认情况下用不到

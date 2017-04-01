@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import { Router, Route, browserHistory } from 'react-router'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './reducers'
+import thunkMiddleware from 'redux-thunk'
+import reducer from './ducks'
 
 // import AddSaid from  './containers/said/addSaid'
-import Said from  './containers/said'
-import Home from  './views/home'
+import Said from './containers/said'
+import Home from './views/home'
 
-const store = createStore(reducer)
+const store = createStore(reducer,
+  applyMiddleware(
+    thunkMiddleware
+  ))
 
 ReactDOM.render(
   <Provider store={store}>
