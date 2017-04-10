@@ -4,7 +4,7 @@ const http = require('http')
 const express = require('express')
 const colors = require('colors')
 const routers = require('./router')
-const config = require('../config')
+const port = 4002
 const app = express()
 
 app.all('*', (req, res, next) => {
@@ -15,7 +15,7 @@ app.all('*', (req, res, next) => {
   next()
 })
 
-app.use('/ivan', routers)
+app.use('/back', routers)
 
 const server = http.createServer(app)
 
@@ -26,13 +26,13 @@ colors.setTheme({
   bold: 'bold'
 })
 
-server.listen(config.mock.port, (err) => {
+server.listen(port, (err) => {
   if (err) {
     console.log(err)
     return
   }
   console.log(
     '[MOCK SERVER START]'.info.bold
-    + ` Listening at http://localhost:${config.mock.port}\n`
+    + ` Listening at http://localhost:${port}\n`
   )
 })

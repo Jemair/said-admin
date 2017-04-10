@@ -10,7 +10,7 @@ class Index extends Component {
     super(props)
     this.props.dispatch(loadSaidLists())
   }
-  addData() {
+  addData = () => {
     // 从 view 触发 store 事件
     this.props.dispatch(add({
       key: id++,
