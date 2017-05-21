@@ -3,10 +3,6 @@
  所以这里采用 ducks 设计：https://github.com/erikras/ducks-modular-redux
 */
 // import Promise from 'Promise'
-import orm from '../models'
-
-const initialState = orm.getDefaultState();
-
 // actionTypes
 export const ADD = 'SAID/ADD';
 export const UPDATE = 'SAID/UPDATE';
@@ -15,20 +11,16 @@ export const REMOVE = 'SAID/REMOVE'
 
 
 
-// const initialState = {
-//   key: 0,
-//   name: '测试',
-//   context: 'defaults 正文'
-// }
+const initialState = [ ] // Article
 
 // reducer
 export default function (state = initialState /* state 应该有一个默认值 */, action) {
-  const session = orm.from(state);
-  const { Article } = session
   switch (action.type) {
     case ADD: {
-      Article.create(action.payload);
-      break;
+      return [
+        ...state,
+        action.payload
+      ]
     }
     case UPDATE:
       break;
@@ -39,8 +31,7 @@ export default function (state = initialState /* state 应该有一个默认值 
     default:
       break;
   }
-  console.log(session.state)
-  return session.state
+  return state
 }
 
 // actions

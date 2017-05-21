@@ -7,8 +7,9 @@ var id = 2;
 
 class Index extends Component {
   constructor(props) {
-    super(props)
-    this.props.dispatch(loadSaidLists())
+    super(props);
+    this.addData();
+    this.props.dispatch(loadSaidLists());
   }
   addData = () => {
     // 从 view 触发 store 事件
@@ -16,8 +17,8 @@ class Index extends Component {
       key: id++,
       name: '测试名称',
       context: `测试正文 - ${Date.now()}`
-    }))
-    console.log('UI.addData', this.props)
+    }));
+    console.log('UI.addData', this.props);
   }
   render() {
     const columns = [{
@@ -35,8 +36,8 @@ class Index extends Component {
           // bordered
           title={() => <Button className="editable-add-btn" onClick={this.addData}>添加测试</Button>}
           columns={columns}
-          // 这个 said_lists 是 redux 传过来的
-          dataSource={this.props.lists}
+          // 这个 articles 是 redux 传过来的
+          dataSource={this.props.articles}
           onChange={this.handleChange} />
       </div>
     );

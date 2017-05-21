@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
   articles: state.articles
 })
 
+
 // concat() 函数的第二个参数，可以在这里做一些特殊的逻辑处理，默认情况下用不到
 // const mapDispatchToProps = (
 //   dispatch,
